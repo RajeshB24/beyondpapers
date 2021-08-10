@@ -15,9 +15,9 @@ Just getting started ...
 ***Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
 
 **Motivations**: 
-      Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems. 
-      Deeplearning models which ideally must be good fit still fails in case of tabular data 
-      Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly 
+      Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems.  
+      Deeplearning models which ideally must be good fit still fails in case of tabular data.  
+      Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly.  
 
 *Concept Contributors*: Rajesh Balakirshnan (rajeshbalakrishnan24@gmail.com)
 
