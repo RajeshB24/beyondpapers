@@ -12,7 +12,12 @@ Just getting started ...
 ## Live Experiments:
 
 ### **Switchers**: 
-Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
+***Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
+
+**Motivations**: 
+      Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems. 
+      Deeplearning models which ideally must be good fit still fails in case of tabular data 
+      Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly 
 
 *Concept Contributors*: Rajesh Balakirshnan (rajeshbalakrishnan24@gmail.com)
 
@@ -22,9 +27,10 @@ Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->
 
 *Adoption Collaborators*: Looking for Collaborations | You have written medium post on a Machine learning Algorithm / posted atleast one video on AI/ML
 
-Main intution behind Switcher is data might contain subgroups which might behave differently from each other hence might useful to split them up and train seperately. As the name suggests switcher main idea is that it iteratively switches observations to respective best learner .
+Data might contain subgroups which might behave differently from each other hence might useful to split them up and train seperately"
+As the name suggests switcher main idea is that it iteratively switches observations to respective best learner .
 
-Switcher makes an attempts to make deeplearning work for tabular data. Its being create with both beginners ease of use and customisabliltity for advance user in mind.
+Switcher makes an attempts to make deeplearning work for tabular data. Its being built considering both beginner's ease of use and customisabliltity for advance user.
 
 **Architecture**: Switchers architecture choice revolves around Split, Iterate and Switch functions.
 
