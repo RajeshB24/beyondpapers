@@ -6,6 +6,24 @@ class GradientDescentRegressor:
     
     
     def __init__(self,iterations=100,learning_rate=0.01,weights=np.nan,verbose=False,random_state=100):
+        ''' 
+            """ Vanilla Gradient Descent Algorithm 
+
+            Read more in the :ref: https://github.com/beyond-papers/beyondpapers
+
+            Parameters
+            ----------
+            iterations : int , default 100
+                Set number of iterations to run.
+            learning_rate : float , classifier function, default=0.01
+                Set learning rate  of the model.    
+            weights : array , default np.nan
+                weights make gradient descent learn incrementally. Calling fit on the model will reuse the weights.
+            random_state : int , default 100
+                random state can be change for different random weight initialisation.
+            
+            """
+        '''
         self.iterations,self.learning_rate,self.weights,self.verbose,self.random_state =\
         iterations,learning_rate,weights,verbose , random_state
      

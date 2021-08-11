@@ -4,12 +4,12 @@ from setuptools import setup, find_packages
 HERE = pathlib.Path(__file__).parent
 
 VERSION = '0.1.0'
-PACKAGE_NAME = 'testpackage'
+PACKAGE_NAME = 'beyondpapers'
 AUTHOR = 'Rajesh Balakrishnan'
 AUTHOR_EMAIL = 'rajeshbalakrishan24@email.com'
-URL = 'https://github.com/you/your_package'
+URL = 'https://github.com/beyond-papers/beyondpapers.git'
 
-LICENSE = 'Apache License 2.0'
+LICENSE = 'MIT License'
 DESCRIPTION = 'Collection Machine Learning algorithm beyond papers'
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"

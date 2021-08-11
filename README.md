@@ -19,7 +19,7 @@ Just getting started ...
       Deeplearning models which ideally must be good fit still fails in case of tabular data.  
       Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly.  
 
-*Reach out*:aibeyondpaper@gmail.com
+*Reach out*: aibeyondpaper@gmail.com
 
 
 Data might contain subgroups which might behave differently from each other hence might useful to split them up and train seperately"

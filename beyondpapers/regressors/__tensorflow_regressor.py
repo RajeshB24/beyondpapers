@@ -6,12 +6,37 @@ import tensorflow as tf
 
 class tensorflow_AnnRegressor:
     def __init__(self,epochs=10,hidden_units=[120,120],activations=['relu','relu']
-                 ,weights=np.nan,model=None):
+                 ,weights=np.nan):
+        ''' 
+            """ Creates a tensorflow based deep ANN based on selections.
+
+            Read more in the :ref: https://github.com/beyond-papers/beyondpapers
+
+            Parameters
+            ----------
+            epochs : int , default 10
+                Set number of iterations to run.
+            hidden_units : integer list , default [120,120]
+                Length of list relates to number of layers and each value indicates number of hidden units.
+            activations: string list , default ['relu','relu']
+                Set activations in each layer. Check out tensorflow activations for options. Number of activation should be same as hidden units
+            weights : array , default np.nan
+                weights make the tensorflow model learn incrementally. Calling fit on the model will reuse the weights.
+
+            Attributes
+            ----------    
+            model: Trained tensorflow model
+                
+            
+            """
+        '''       
+          
         self.epochs = epochs
         self.hidden_units =hidden_units
         self.activations = activations
         self.weights = weights
-        self.model = model
+        
+        
         
     
     def fit(self,X,y):
@@ -20,9 +45,8 @@ class tensorflow_AnnRegressor:
         activations = self.activations
         weights = self.weights
         epochs = self.epochs
-        model = self.model
-        
-        
+        model =None
+
         if model is None:
             ## Build Architecture
             model = Sequential([layers.InputLayer(input_shape=(X.shape[1],))])
