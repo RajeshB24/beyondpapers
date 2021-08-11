@@ -1,3 +1,6 @@
+
+
+![](images/logobeyondpaper.png)
 # Beyond Papers 
 Trying to do small gradient update to AI/ML Research with keen interest to build community of  "Code before Research paper","Random and open Experiments before perfect solution". Building value beyond papers.
  
@@ -6,7 +9,7 @@ Each algorithm will have easy to understand underlying intution and architecture
 ## Launched:
 Just getting started ...
 
-       
+
 
 
 ## Live Experiments:
