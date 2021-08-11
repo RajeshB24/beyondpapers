@@ -19,13 +19,8 @@ Just getting started ...
       Deeplearning models which ideally must be good fit still fails in case of tabular data.  
       Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly.  
 
-*Concept Contributors*: Rajesh Balakirshnan (rajeshbalakrishnan24@gmail.com)
+*Reach out*: Rajesh Balakirshnan (aibeyondpaper@gmail.com)
 
-*Concept Collaborators*: Looking for Collaborations | If you have developed any algorithm scratch you probably have good intution
-
-*Code Collaborators*: Looking for Collaborations | You speak Python  
-
-*Adoption Collaborators*: Looking for Collaborations | You have written medium post on a Machine learning Algorithm / posted atleast one video on AI/ML
 
 Data might contain subgroups which might behave differently from each other hence might useful to split them up and train seperately"
 As the name suggests switcher main idea is that it iteratively switches observations to respective best learner .
