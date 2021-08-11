@@ -17,7 +17,7 @@ Just getting started ...
 ### **Switchers**: 
 ***Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
 
-![](images/switcher_concept.gif)
+**Installation**: pip install beyondpapers
 
 ***Getting Started**
 https://github.com/ai-beyondpapers/beyondpapers/blob/master/Switcher_Getting_Started.ipynb
