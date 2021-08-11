@@ -5,9 +5,9 @@ HERE = pathlib.Path(__file__).parent
 
 VERSION = '0.1.0'
 PACKAGE_NAME = 'beyondpapers'
-AUTHOR = 'Rajesh Balakrishnan'
-AUTHOR_EMAIL = 'rajeshbalakrishan24@email.com'
-URL = 'https://github.com/beyond-papers/beyondpapers.git'
+AUTHOR = 'AI Beyond Papers'
+AUTHOR_EMAIL = 'aibeyondpaper@gmail.com'
+URL = 'https://github.com/ai-beyondpapers/beyondpapers'
 
 LICENSE = 'MIT License'
 DESCRIPTION = 'Collection Machine Learning algorithm beyond papers'
