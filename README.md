@@ -19,6 +19,9 @@ Just getting started ...
 
 ![](images/switcher_concept.gif)
 
+***Getting Started**
+https://github.com/ai-beyondpapers/beyondpapers/blob/master/Switcher_Getting_Started.ipynb
+
 **Motivations**: 
       Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems.  
       Deeplearning models which ideally must be good fit still fails in case of tabular data.  
