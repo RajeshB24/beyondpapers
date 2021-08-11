@@ -17,6 +17,8 @@ Just getting started ...
 ### **Switchers**: 
 ***Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
 
+![](images/switcher_concept.gif)
+
 **Motivations**: 
       Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems.  
       Deeplearning models which ideally must be good fit still fails in case of tabular data.  
