@@ -2,7 +2,9 @@
 
 ![](images/logobeyondpaper.png)
 # Beyond Papers 
-Trying to do small gradient update to AI/ML Research with keen interest to build community of  "Code before Research paper","Random and open Experiments before perfect solution". Building value beyond papers.
+[![pip version](https://badge.fury.io/py/beyondpapers.svg)](https://badge.fury.io/py/beyondpapers)
+
+Trying to do small gradient update to AI/ML Research with keen interest to build community of "Code before Research paper","Random and open Experiments before perfect solution". Building value beyond papers
  
 Each algorithm will have easy to understand underlying intution and architecture breif mentioned by concept contributors and collaborators. Before moving experimental to launched atleast 3 usage examples, associated medium post and concept video will be linked in the document for quick reference. 
 
@@ -15,22 +17,25 @@ Just getting started ...
 ## Live Experiments:
 
 ### **Switchers**: 
-***Compatible with Tensorflow | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
+***Compatible with Tensorflow & Scikit-learn | Regression | Deeplearning for Tabular Data | Spit->Iterate<->Switch
+
+Note: Might work fine with Pytorch or any other incremental learners as well. Testing under progress.
+
+**Installation**: pip install beyondpapers
 
 ![](images/switcher_concept.gif)
 
-**Motivations**: 
-      Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems.  
-      Deeplearning models which ideally must be good fit still fails in case of tabular data.  
-      Architecture of Tabular Deeplearning Models like Tabnet are not very intutive hence not beginner friendly.  
+
+***Getting Started**
+https://github.com/ai-beyondpapers/beyondpapers/blob/master/Switcher_Getting_Started.ipynb
 
 *Reach out*: aibeyondpaper@gmail.com
 
+**Motivation**: 
+      Ensemble Trees are great fit for classification but are not good conceptual fit for Regression problems.  Deeplearning models which ideally must be good fit still fails in case of tabular data. In some cases tabular data might inherently have sub groups which behave differently in weights and direction which might need complex architechture choices like Tabnet.
 
-Data might contain subgroups which might behave differently from each other hence might useful to split them up and train seperately"
-As the name suggests switcher main idea is that it iteratively switches observations to respective best learner .
+Switcher makes an attempt to make deeplearning work for tabular data by enabling a versatile Ensemble framework.Its being built considering both beginner's ease of use and customisabliltity for advance user. 
 
-Switcher makes an attempts to make deeplearning work for tabular data. Its being built considering both beginner's ease of use and customisabliltity for advance user.
 
 **Architecture**: Switchers architecture choice revolves around Split, Iterate and Switch functions.
 
