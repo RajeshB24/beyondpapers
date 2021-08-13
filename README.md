@@ -2,7 +2,7 @@
 
 ![](images/logobeyondpaper.png)
 # Beyond Papers 
-[![pip version](https://badge.fury.io/py/beyondpapers.svg)](https://badge.fury.io/py/beyondpapers)
+[![pip version](https://img.shields.io/badge/pip%20version%20%3A%20beyondpapers-%200.1.0-brightgreen](https://pypi.org/project/beyondpapers/)
 
 Trying to do small gradient update to AI/ML Research with keen interest to build community of "Code before Research paper","Random and open Experiments before perfect solution". Building value beyond papers
  
