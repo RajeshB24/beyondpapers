@@ -7,7 +7,7 @@
 
 Trying to do small gradient update to AI/ML Research with keen interest to build community of "Code before Research paper","Random and open Experiments before perfect solution". Building value beyond papers
  
-Each algorithm will have easy to understand underlying intution and architecture breif mentioned by concept contributors and collaborators. Before moving experimental to launched atleast 3 usage examples, associated medium post and concept video will be linked in the document for quick reference. 
+Each algorithm will have easy to understand underlying intution and architecture brief mentioned by concept contributors and collaborators. Before moving experimental to launched atleast 3 usage examples, associated medium post and concept video will be linked in the document for quick reference. 
 
 ## Launched:
 Just getting started ...
