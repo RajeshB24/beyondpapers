@@ -16,7 +16,7 @@ class Switcher:
                  split_group=None,
                  split_learn_mode = 'pre-post',
                  split_weights=np.nan,
-                 split_learners=np.nan,
+                 split_learners=None,
                  random_state=100 ):
         ''' 
             """ Switcher Algorithm is noval ensemble algortithm for Regression which combines unsupervised algorithm, iterative regressor like GradientDescent / DeepANN and classifier. 
@@ -41,7 +41,7 @@ class Switcher:
                 Setting this would ignore random split initialisation.
             split_weights: numeric array   , default = np.nan
                 Split weights allow switcher to be incrementally trained. Calling fit method again will reuse weights from pretrained model. Weights can be reset manually too.
-            split_learners: list of base models , default = np.nan 
+            split_learners: list of base models , default = None 
                 Split learners allow switcher to be incrementally trained. Calling fit method again will reuse weights from pretrained model. Currently its not advised to
                 change split learners. This feature will be explored later in multi architechture case.
             random_state: int  , default = 100
@@ -69,6 +69,7 @@ class Switcher:
         ## Initial Selections
         split=self.split 
         switch=self.switch
+        split_learners = self.split_learners
     
         
         
@@ -89,8 +90,8 @@ class Switcher:
             
             
 
-        
-        split_learners = [None]*split
+        if split_learners is None:
+            split_learners = [None]*split
         
         y_pred_splits = np.zeros(X.shape[0]*split).reshape(X.shape[0],split)
         split_list=np.unique(split_group).astype(int).tolist()
@@ -114,8 +115,7 @@ class Switcher:
         
         for n_switch in range(switch): 
             split_list=np.unique(split_group).astype(int).tolist()
-           
-
+        
             
             ### Run base Model for Each Split ####
 
@@ -154,8 +154,11 @@ class Switcher:
                 y_pred_splits[:,col]=split_learners[col].predict(X).reshape(-1)
                 
                 
-                         
+            ### Error on each observation   
+                  
             abs_error=abs(y.reshape(X.shape[0],1) - y_pred_splits)
+
+
             split_group=np.argmin(abs_error, axis=1)
                 
             split_list=np.unique(split_group).astype(int).tolist()
@@ -173,30 +176,69 @@ class Switcher:
             if  len(split_list)>1:
                 meta_learner.fit(X,split_group)
                 split_group=meta_learner.predict(X) 
-      
+                
+        ### Select ones that get retained        
+             
+        
+        split_group_unique=np.unique(split_group).astype(int).tolist()
+        split_learners=[split_learners[i]  for i in split_group_unique] 
+        
         self.split_weights=split_weights
         self.split_learners=split_learners
         self.meta_learner=meta_learner
         self.split_group=split_group 
         
-    def predict(self,X):
-        
-        split_group = self.meta_learner.predict(X)
-        
+    def predict(self,X ,splitprob_weighted_sum=False):
+        """
+        x : Array , pass input array
+        splitprob_weighted_sum : logical , default : False , set True for split probabily weighted sum of learners predictions.Classifier needs to have predict_proba method if set True.
+        """
         split_learners = self.split_learners
-        split_group_unique=np.unique(split_group).astype(int).tolist()
-        
-        split_group_list=[np.where(split_group==i) for i in split_group_unique ]
+        if splitprob_weighted_sum==False:
+            split_group = self.meta_learner.predict(X)
+            split_group_unique=np.unique(split_group).astype(int).tolist()
+            
+            #### Get index observation post split learner to get data back in original order
+            split_group_list=[np.where(split_group==i) for i in split_group_unique ]
        
-        sort_index = np.argsort(np.hstack(split_group_list))
+            sort_index = np.argsort(np.hstack(split_group_list))
+            ypred=[split_learners[i].predict(X[np.where(split_group==split)]).reshape(-1) for i,split in enumerate(split_group_unique) ]  
+            ypred = np.hstack(ypred)
         
-        
-        
-        ypred=[split_learners[i].predict(X[np.where(split_group==i)]).reshape(-1) for i in split_group_unique ]
-        
-           
-        ypred = np.hstack(ypred)
-        ypred = ypred[sort_index]
+            #Gets observation back to orignal order
+            ypred = ypred[sort_index] 
+            
+        else:
+            ### Prob weighted prediction
+            split_group_proba = self.meta_learner.predict_proba(X)
+            
+            ypred=[learner.predict(X).reshape(-1) for learner in split_learners] 
+             
+            ypred = np.vstack(ypred)
+            ypred= ypred.T
+            ypred = ypred*split_group_proba
+            ypred = ypred.sum(axis=1)
+            
         ypred=ypred.reshape(-1)
         return ypred
+    
+    
+    
+    def predict_connectors_input(self,X):
+        
+        split_group_proba = self.meta_learner.predict_proba(X)
+        split_group = self.meta_learner.predict(X)
+        split_group=split_group.reshape(-1,1)
+        split_learners = self.split_learners
+        
+        split_group_unique=np.unique(split_group).astype(int).tolist()
+        
+        
+        learner_preds=[learner.predict(X).reshape(-1) for learner in split_learners] 
+        
+        learner_preds=np.vstack(learner_preds)
+        learner_preds=learner_preds.T
+        return split_group,split_group_proba,learner_preds,{'output type':['split_group','split_group_proba','split_learner_pred']}
 
+    
+    
